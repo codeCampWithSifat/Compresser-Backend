@@ -8,6 +8,7 @@ const createProduct = async (req, res) => {
     price,
     discountPrice,
     category,
+    collections,
     brand,
     sizes,
     colors,
@@ -22,6 +23,7 @@ const createProduct = async (req, res) => {
       price,
       discountPrice,
       category,
+      collections,
       brand,
       sizes,
       colors,
@@ -30,6 +32,7 @@ const createProduct = async (req, res) => {
       images,
       user: req.user?._id,
     });
+    console.log("Product", product);
     const createProduct = await product.save();
     res.status(201).json(createProduct);
   } catch (error) {
@@ -37,4 +40,14 @@ const createProduct = async (req, res) => {
   }
 };
 
-export { createProduct };
+const getAllProducts = async (req, res) => {
+  try {
+    const products = await Product.find({});
+
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+export { createProduct, getAllProducts };

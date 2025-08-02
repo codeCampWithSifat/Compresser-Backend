@@ -11,11 +11,11 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     discountPrice: {
-      type: String,
+      type: Number,
       required: true,
     },
     countInStock: {
@@ -29,14 +29,15 @@ const productSchema = new mongoose.Schema(
     },
     brand: {
       type: String,
-      enum: [
-        "Urban Threads",
-        "Modern Fit",
-        "Street Style",
-        "Beach Breeze",
-        "Fashionista",
-        "ChicStyle",
-      ],
+      // enum: [
+      //   "Urban Threads",
+      //   "Modern Fit",
+      //   "Street Style",
+      //   "Beach Breeze",
+      //   "Fashionista",
+      //   "ChicStyle",
+      //   "Urban Chic",
+      // ],
       required: true,
     },
     sizes: {
@@ -47,18 +48,23 @@ const productSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
+    collections: {
+      type: String,
+      required: true,
+    },
     material: {
       type: String,
-      enum: [
-        "Cotton",
-        "Wool",
-        "Denim",
-        "Polyester",
-        "Silk",
-        "Linen",
-        "Viscose",
-        "Fleece",
-      ],
+      // enum: [
+      //   "Cotton",
+      //   "Wool",
+      //   "Denim",
+      //   "Polyester",
+      //   "Silk",
+      //   "Linen",
+      //   "Viscose",
+      //   "Fleece",
+      //   "Cotton Blend",
+      // ],
     },
     gender: {
       type: String,
