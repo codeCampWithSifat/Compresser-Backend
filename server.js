@@ -4,6 +4,7 @@ import "dotenv/config";
 import connectDB from "./config/database.js";
 import userRoutes from "./routes/UserRoutes.js";
 import adminUsersRoutes from "./routes/AdminRoutes.js";
+import productRoutes from "./routes/ProductRoutes.js";
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -17,6 +18,7 @@ connectDB();
 // connected all the router
 app.use("/api/users", userRoutes);
 app.use("/api/adminUsers", adminUsersRoutes);
+app.use("/api/products", productRoutes);
 
 // Testing Routes
 app.get("/api/server", (req, res) => {
